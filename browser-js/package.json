@@ -1,0 +1,51 @@
+{
+  "name": "http_ece",
+  "version": "1.1.0",
+  "description": "Encrypted Content-Encoding for HTTP",
+  "homepage": "https://github.com/martinthomson/encrypted-content-encoding",
+  "bugs": "https://github.com/martinthomson/encrypted-content-encoding/issues",
+  "author": {
+    "name": "Martin Thomson",
+    "email": "martin.thomson@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Marco Castelluccio",
+      "email": "mcastelluccio@mozilla.com"
+    },
+    {
+      "name": "Eric Xanderson",
+      "email": "disarticulate@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martinthomson/encrypted-content-encoding.git"
+  },
+  "license": "MIT",
+  "main": "src/ece.js",
+  "scripts": {
+    "test": "node ./test.js",
+    "build:mini": "npm run build && cat src/LICENSE > dist/ece.min.js && uglifyjs --compress --mangle -- dist/ece.js >> build/asn1.min.js",
+    "build": "babel src/ece.js --compact=false --out-dir dist --source-maps"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "dependencies": {
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "urlsafe-base64": "~1.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.36.1",
+    "webpack-cli": "^4.6.0"
+  },
+  "peerDependencies": {
+    "asn1.js": "2.x"
+  }
+}
